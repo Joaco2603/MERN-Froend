@@ -4,12 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Menu from './components/Menu'
 import Card from './components/Card'
-
+import Login from './components/Login'
 
 function App() {
   return <>
-    <Menu />
-    <Card />
+    {/* <Menu />
+    <Card /> */}
+    <Login />
   </>
 }
 
