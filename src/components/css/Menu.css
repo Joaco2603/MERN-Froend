@@ -1,0 +1,13 @@
+
+
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 200px;
+}
+
+.opt_menu{
+  display: inline-block;
+  margin: 10px;
+}
+  

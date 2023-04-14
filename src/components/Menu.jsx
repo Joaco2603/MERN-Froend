@@ -1,15 +1,16 @@
 import React from 'react'
-import '../App.css'
+import './css/Menu.css'
+import {NavLink} from 'react-router-dom'
 import { FaBeer } from "react-icons/fa";
 
 function Menu() {
   return (
     <div className='container_menu'>
-        <ul>
-            <li><a href="" className="opt_menu">Tienda</a></li>
-            <li><a href="" className="opt_menu">User</a></li>
-            <li><a href="" className="opt_menu">Carrito</a></li>
-        </ul>
+        <nav>
+            <NavLink to="" className="opt_menu">Tienda</NavLink>
+            <NavLink to="" className="opt_menu">User</NavLink>
+            <NavLink to="" className="opt_menu">Carrito</NavLink>
+        </nav>
     </div>
   )
 }

@@ -7,9 +7,23 @@
 }
 
 /*Formulario*/
+
+.Login>input{
+    transition: 2s;
+    -webkit-transition: 2s;
+    -moz-transition: 2s;
+    -ms-transition: 2s;
+    -o-transition: 2s;
+}
+
 .titles_input{
     display: flex;
     justify-content: start;
+    transition: 2s;
+    -webkit-transition: 2s;
+    -moz-transition: 2s;
+    -ms-transition: 2s;
+    -o-transition: 2s;
 }
 .input_text{
     padding: 2px;
@@ -28,7 +42,7 @@
     -moz-transition: 2s;
     -ms-transition: 2s;
     -o-transition: 2s;
-    background-color: #b5d7f0;
+    background-color: #b2d2e9b6;
 }
 
 .input_text:focus{
@@ -37,8 +51,46 @@
     -moz-transition: 2s;
     -ms-transition: 2s;
     -o-transition: 2s;
-    background-color: #b5d7f0;
+    background-color: #b2d2e9b6;
+    padding: 10px;
 }
+
+
+.fit {
+    overflow: hidden;
+  }
+  .fit * {
+    display: inline;
+  }
+  .fit input[type=file] {
+    bottom: 0;
+    cursor: pointer;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-300px, 0px) scale(4);
+  }
+  
+  .wrap {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .button {
+    border: 2px solid;
+    border-radius: 4px;
+    color: #107acc;
+    display: inline-block;
+    padding: 5px 10px;
+    position: relative;
+  }
 
 
 .send{
