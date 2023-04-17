@@ -16,7 +16,6 @@ function App() {
           path="/"
           element={
             <>
-              <Menu />
               <Registrarse />
             </>
           }
@@ -26,12 +25,19 @@ function App() {
           path="/Sign"
           element={
             <>
-              <Menu />
               <Login />
             </>
           }
         ></Route>
 
+        <Route
+          path="/articulos"
+          element={
+            <>
+              <Card />
+            </>
+          }
+        ></Route>
           
       <Route
           path="*"
