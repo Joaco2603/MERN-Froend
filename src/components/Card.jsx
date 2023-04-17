@@ -8,40 +8,42 @@ function Card() {
       name:"Joaco",
       img: "https://robohash.org/user1",
       art:"Iphone 12",
-      info:"dsadsadsa"
+      info:"dsadsadsa",
+      carrito:false
     },
     {
       id:2,
       name:"Kevin",
       img:"https://robohash.org/user2",
       art:"Ford fiestas",
-      info:"dsadsadsa"
+      info:"dsadsadsa",
+      carrito:false
     },
     {
       id:3,
       name:"Carlos",
       img:"https://robohash.org/user3",
       art:"Ipad Mini",
-      info:"dsadsadsa"
+      info:"dsadsadsa",
+      carrito:false
     },
   ]
 
-  console.log(objects)
-  let [save,setSave]=useState(objects)
-  console.log(save)
+  const [save, setSave] = useState(objects);
+
 
   return <div className="container_container">
       {
-        save.map((object,i) => {
+        objects.map((object,i) => {
           return <div className='container' key={i}>
           <div className="card">
           <h1>{object.name}</h1>
           <img src={object.img} alt="" />
           <h2>{object.art}</h2>
           <h3>{object.info}</h3>
-          <button onClick={()=>{
-            
-          }}>{save}</button>
+          <button id={i} onClick={()=>{
+            setSave(true)
+          }}>{ (!objects[i].carrito )?"Añadir al carrito":"Añadido al carrito"}</button>
           </div>
           </div>
         })

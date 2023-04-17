@@ -1,10 +1,10 @@
 import React from 'react'
 import './css/Login.css'
-import {NavLink,Navigate} from 'react-router-dom'
+import {NavLink,useNavigate} from 'react-router-dom'
 
 function Registrarse() {
   const reader= new FileReader();
-
+  const navigate = useNavigate();
 
   return (
     <div className='Login'>
@@ -36,9 +36,7 @@ function Registrarse() {
             img: reader.result,
             rol: rol.value
          }
-
          console.log(user)
-
             fetch('http://localhost:8080/tienda',{
               method:"POST",
               mode:"cors",
@@ -57,12 +55,7 @@ function Registrarse() {
                   localStorage.setItem("correo",res.correo)
                   localStorage.setItem("img",res.img)
                   localStorage.setItem("rol",res.rol)
-                  
-                  return (
-                    <>
-                    <Navigate to="/articulos" replace={true}/>
-                    </>
-                  )
+                  navigate("/articulos");
                 }
               })
               .catch(err=>console.log(err))
