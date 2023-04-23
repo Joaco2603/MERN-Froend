@@ -3,11 +3,30 @@
 nav{
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 200px;
+  margin-bottom: 10px;
 }
 
 .opt_menu{
   display: inline-block;
   margin: 10px;
+}
+
+#icon{
+  margin-top: 8px;
+}
+
+#circle{
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 30px;
+  right: 500px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  color: white;
 }
   

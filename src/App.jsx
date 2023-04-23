@@ -6,7 +6,9 @@ import Menu from "./components/Menu";
 import Card from "./components/Card";
 import Login from "./components/Login";
 import Registrarse from "./components/registrarse";
+import CrearProducto from './components/CrearProducto'
 import Nofound from './components/Nofound'
+import 'boxicons'
 
 function App() {
   return (
@@ -34,7 +36,17 @@ function App() {
           path="/articulos"
           element={
             <>
+              <Menu />
               <Card />
+            </>
+          }
+        ></Route>
+         <Route
+          path="/articulos/crear"
+          element={
+            <>
+              <Menu />
+              <CrearProducto />
             </>
           }
         ></Route>

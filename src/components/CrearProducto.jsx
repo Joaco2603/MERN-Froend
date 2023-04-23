@@ -2,23 +2,16 @@ import React from 'react'
 import './css/Login.css'
 import {NavLink,useNavigate} from 'react-router-dom'
 
-function Registrarse() {
+function CrearProducto() {
   const reader= new FileReader();
   const navigate = useNavigate();
 
   return (
     <div className='Login'>
-        <h3 className='titles_input' >Nombre:</h3>
+        <h3 className='titles_input' >Producto:</h3>
         <input type="text" className='input_text' id='nombre'/>
-        <h3 className='titles_input'>Email:</h3>
+        <h3 className='titles_input'>Descripcion:</h3>
         <input type="text" className='input_text' id='correo'/>
-        <h3 className='titles_input'>Contraseña:</h3>
-        <input type="text" className='input_text' id='password'/>
-        <h3 className='titles_input'>Rol:</h3>
-        <select name="" id="rol" className="select-css" >
-          <option value="ADMIN_ROLE">ADMIN_ROLE</option>
-          <option value="USER_ROLE">USER_ROLE</option>
-        </select>
         <h3 className='titles_input'>Foto de perfil:</h3>
         <span className='fit button' >
         <input type='file' id='img' onChange={()=>{
@@ -65,4 +58,4 @@ function Registrarse() {
   )
 }
 
-export default Registrarse
+export default CrearProducto
