@@ -2,9 +2,10 @@ import React from 'react'
 import './css/Login.css'
 import {NavLink,useNavigate} from 'react-router-dom'
 
+//Creo un componente
 function Login() {
 
-
+  //redirecciona
   const navigate = useNavigate();
   return (
     <div className='Login'>
@@ -20,12 +21,12 @@ function Login() {
             alert("Rellene los campos")
           }else
           {
-
+            //El objeto froend
             const user = {
               correo:correo.value,
               password:password.value
             }
-
+            //Hace la peticion al endpoint
             fetch("http://localhost:8080/sign",{
             method: "POST",
             mode:"cors",

@@ -1,12 +1,17 @@
 import React from 'react'
 import './css/Login.css'
+//Redireccionar con react dom
 import {NavLink,useNavigate} from 'react-router-dom'
 
+//Creamos un componente
 function Registrarse() {
+  //Lee los inputs file
   const reader= new FileReader();
+  //Redirecciona a otros componentes
   const navigate = useNavigate();
 
   return (
+    //Forms
     <div className='Login'>
         <h3 className='titles_input' >Nombre:</h3>
         <input type="text" className='input_text' id='nombre'/>
@@ -29,6 +34,7 @@ function Registrarse() {
         <hr />
         <button className='send' onClick={()=>{
 
+//El objeto del froend
          const User={
             nombre: nombre.value,
             correo: correo.value,
@@ -37,6 +43,7 @@ function Registrarse() {
             rol: rol.value
          }
          console.log(User)
+         //Hace la peticion al endpoint
             fetch('http://localhost:8080/tienda',{
               method:"POST",
               mode:"cors",
@@ -51,6 +58,7 @@ function Registrarse() {
                 if(res.errors){
                   console.log("Error")
                 }else{
+                  //Guarda en el localstorage
                   localStorage.setItem("nombre",res.nombre)
                   localStorage.setItem("correo",res.correo)
                   localStorage.setItem("img",res.img)
