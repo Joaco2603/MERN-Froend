@@ -11,7 +11,7 @@ function Registrarse() {
   const navigate = useNavigate();
 
   return (
-    //Forms
+    //Forms con los datos que se agregaran a la base de mongo
     <div className='Login'>
         <h3 className='titles_input' >Nombre:</h3>
         <input type="text" className='input_text' id='nombre'/>
@@ -27,6 +27,7 @@ function Registrarse() {
         <h3 className='titles_input'>Foto de perfil:</h3>
         <span className='fit button' >
         <input type='file' id='img' onChange={()=>{
+          //Pasa la imagen a base 64
             reader.readAsDataURL(img.files[0]);
         }}/>
         <span>Click me to upload</span>
@@ -34,7 +35,7 @@ function Registrarse() {
         <hr />
         <button className='send' onClick={()=>{
 
-//El objeto del froend
+//El objeto del froend que vamos a introducir en la base de mongo
          const User={
             nombre: nombre.value,
             correo: correo.value,
@@ -43,7 +44,7 @@ function Registrarse() {
             rol: rol.value
          }
          console.log(User)
-         //Hace la peticion al endpoint
+         //Hace la peticion al endpoint por el cors
             fetch('http://localhost:8080/tienda',{
               method:"POST",
               mode:"cors",
@@ -58,19 +59,22 @@ function Registrarse() {
                 if(res.errors){
                   console.log("Error")
                 }else{
-                  //Guarda en el localstorage
-                  localStorage.setItem("nombre",res.nombre)
-                  localStorage.setItem("correo",res.correo)
-                  localStorage.setItem("img",res.img)
-                  localStorage.setItem("rol",res.rol)
+                  //Guarda en el localstorage la informacion del usuario para poder utilizarla con libertad y guarda el jwt para poderlo usar de manera mas sencilla en las peticiones(proteccion de las rutas a cualquiera que no este con un jwt)
+                  localStorage.setItem("nombre",res.usuario.nombre)
+                  localStorage.setItem("correo",res.usuario.correo)
+                  localStorage.setItem("img",res.usuario.img)
+                  localStorage.setItem("rol",res.usuario.rol)
+                  localStorage.setItem("json-token",res.token)
                   navigate("/articulos");
                 }
               })
               .catch(err=>console.log(err))
         }}>Registrarse</button><br />
+        {/*Redireccion de componente */}
         <NavLink to="/sign">Iniciar sesion</NavLink>
     </div>
   )
 }
 
+//Exporta el componente
 export default Registrarse

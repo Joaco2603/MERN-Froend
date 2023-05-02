@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//Importamos componentes y y el css y las funciones de react dom para redireccionar
+//Importamos componentes y y el css y las funciones de react dom para redireccionar y utilizar componentes
 import "./App.css";
 import Menu from "./components/Menu";
 import Card from "./components/Card";
@@ -12,9 +12,12 @@ import 'boxicons'
 import { Header } from './components/Header';
 import { ProductList } from './components/ProductList';
 import EstiloMenu from "./components/estiloMenu";
+import User from './components/User'
+import Peticion from "./components/peticion";
 
 function App() {
   return (
+    //Creamos las rutas de los componentes y los path de cada uno
     <BrowserRouter>
       <Routes>
         <Route
@@ -63,6 +66,14 @@ function App() {
           }
         ></Route>
 
+        <Route path="/user"
+        element={
+          <>
+            <Menu/>
+            <User/>
+          </>
+        }></Route>
+
         <Route
           path="/pagar"
           element={
@@ -71,7 +82,7 @@ function App() {
             </>
           }
         ></Route>
-          
+          {/*Redireccionar a otra ruta la cual no exista*/}
       <Route
           path="*"
           element={
@@ -85,4 +96,5 @@ function App() {
   );
 }
 
+//Exportamos app
 export default App;

@@ -13,23 +13,33 @@ export const Header = ({
   setCountProducts,
   setTotal,
 }) => {
+
+  //Activa el hidden del carrito
   const [active, setActive] = useState(false);
+  //Variable de cantidad de articulos
+  const [quantity, setQuiantity] = useState(1)
 
+  //Eliminar un objeto del carrito
   const onDeleteProduct = (product) => {
+    //Filtro para eliminar ese objeto como tal del carrito
     const results = allProducts.filter((item) => item.id !== product.id);
-
-    setTotal(total - product.price * product.quantity);
-    setCountProducts(countProducts - product.quantity);
+    //al total le quito el precio total de ese producto
+    setTotal(total - product.precio * quantity);
+    //Al contador le quito la cantidad de productos que estaban de este mismo
+    setCountProducts(countProducts - quantity);
+    //Meto lo anterior a los products para actualizarlo
     setAllProducts(results);
   };
 
   const onCleanCart = () => {
+    //Restablezco todo por defecto
     setAllProducts([]);
     setTotal(0);
     setCountProducts(0);
   };
 
   return (
+    //Menu con redireccionamiento a los path
     <header>
       <div className="container_menu">
         <nav>
@@ -48,6 +58,7 @@ export const Header = ({
         </nav>
       </div>
 
+    {/*Icono con el state active para cambiar el hidden con un onclick*/}
       <div className="container-icon">
         <div className="container-cart-icon" onClick={() => setActive(!active)}>
           <svg
@@ -65,27 +76,31 @@ export const Header = ({
             />
           </svg>
           <div className="count-products">
+            {/*Ponemos el resultado del state contador */}
             <span id="contador-productos">{countProducts}</span>
           </div>
         </div>
 
         <div
+        //Cambiamos la clase
           className={`container-cart-products ${active ? "" : "hidden-cart"}`}
         >
+          {/*Si hay algo en todos los productos que los muestre sino que muestre que el carrito esta vacio*/}
           {allProducts.length ? (
             <>
+            {/*Recorremos y llenamos la cards de los objetos json*/}
               <div className="row-product">
-                {allProducts.map((product) => (
-                  <div className="cart-product" key={product.id}>
+                {allProducts.map((product,i) => (
+                  <div className="cart-product" key={i}>
                     <div className="info-cart-product">
                       <span className="cantidad-producto-carrito">
-                        {product.quantity}
+                        {quantity}
                       </span>
                       <p className="titulo-producto-carrito">
-                        {product.nameProduct}
+                        {product.producto}
                       </p>
                       <span className="precio-producto-carrito">
-                        ${product.price}
+                        ${product.precio}
                       </span>
                     </div>
                     <svg

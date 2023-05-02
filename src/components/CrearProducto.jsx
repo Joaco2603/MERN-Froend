@@ -16,6 +16,8 @@ function CrearProducto() {
         <input type="text" className='input_text' id='producto'/>
         <h3 className='titles_input'>Descripcion:</h3>
         <input type="text" className='input_text' id='desc'/>
+        <h3 className='titles_input'>Precio:</h3>
+        <input type="Number" className='input_text' id='precio'/>
         <h3 className='titles_input'>Foto de perfil:</h3>
         <span className='fit button' >
         <input type='file' id='img' onChange={()=>{
@@ -29,17 +31,21 @@ function CrearProducto() {
 //Guarda usuarios del frondEnd
          const User={
             producto: producto.value,
-            desc: desc.value
+            desc: desc.value,
+            precio: precio.value,
+            img: reader.result,
          }
+
          console.log(User)
          //Hace la peticion para crear un producto
          fetch('http://localhost:8080/product',{
+          headers: {
+            'Content-Type': 'application/json',
+            'json-token': localStorage.getItem('json-token') 
+          },        
           method:'POST',
           mode:"cors",
             body:JSON.stringify(User),
-            headers: {
-              'Content-Type': 'application/json'
-            }
         })
         .then(res=>res.json())
         .then(res=>console.log(res))
@@ -49,4 +55,5 @@ function CrearProducto() {
   )
 }
 
+//Exporta el componente
 export default CrearProducto
